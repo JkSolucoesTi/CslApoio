@@ -1,0 +1,349 @@
+﻿@model CslApoio.Models.Funcionario
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar Funcionario - @Html.DisplayFor(model => model.Nome)</h1>
+
+<hr />
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <hr />
+    <h2>Dados do Terceiro</h2>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label asp-for="AcaoId" class="control-label"></label>
+            <select asp-for="AcaoId" class="form-control" asp-items="ViewBag.AcaoId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="Matricula" class="control-label"></label>
+            <input asp-for="Matricula" class="form-control" placeholder="Matricula" />
+            <span asp-validation-for="Matricula" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="TerceiroId" class="control-label"></label>
+            <select asp-for="TerceiroId" class="form-control" asp-items="ViewBag.TerceiroId"></select>
+        </div>
+
+        <div class="form-group col-md-2">
+            <label asp-for="Nome" class="control-label"></label>
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="SobreNome" class="control-label"></label>
+            <input asp-for="SobreNome" class="form-control" />
+            <span asp-validation-for="SobreNome" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label asp-for="CPF" class="control-label"></label>
+            <input asp-for="CPF" class="form-control" />
+            <span asp-validation-for="CPF" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="PIS" class="control-label"></label>
+            <input asp-for="PIS" class="form-control" />
+            <span asp-validation-for="PIS" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-md-2">
+            <label asp-for="SexoId" class="control-label"></label>
+            <select asp-for="SexoId" class="form-control" asp-items="ViewBag.SexoId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="EstadoCivilId" class="control-label"></label>
+            <select asp-for="EstadoCivilId" class="form-control" asp-items="ViewBag.EstadoCivilId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="NacionalidadeId" class="control-label"></label>
+            <select asp-for="NacionalidadeId" class="form-control" asp-items="ViewBag.NacionalidadeId"></select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label asp-for="Passaporte" class="control-label"></label>
+            <input asp-for="Passaporte" class="form-control" />
+            <span asp-validation-for="Passaporte" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="RG" class="control-label"></label>
+            <input asp-for="RG" class="form-control" />
+            <span asp-validation-for="RG" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="OrgaoEmissor" class="control-label"></label>
+            <input asp-for="OrgaoEmissor" class="form-control" />
+            <span asp-validation-for="OrgaoEmissor" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="DataNascimento" class="control-label"></label>
+            <input asp-for="DataNascimento" class="form-control" />
+            <span asp-validation-for="DataNascimento" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="Telefone" class="control-label"></label>
+            <input asp-for="Telefone" class="form-control" />
+            <span asp-validation-for="Telefone" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label asp-for="EscolaridadeId" class="control-label"></label>
+            <select asp-for="EscolaridadeId" class="form-control" asp-items="ViewBag.EscolaridadeId"></select>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="CertificadoId" class="control-label"></label>
+            <select asp-for="CertificadoId" class="form-control" asp-items="ViewBag.CertificadoId"></select>
+        </div>
+    </div>
+    <hr />
+    <h2>Dados do Fornecedor</h2>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label asp-for="DocumentoCompra" class="control-label"></label>
+            <input asp-for="DocumentoCompra" class="form-control">
+            <span asp-validation-for="DocumentoCompra" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="Item" class="control-label"></label>
+            <input asp-for="Item" class="form-control" />
+            <span asp-validation-for="Item" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="SubContratada" class="control-label"></label>
+            <input asp-for="SubContratada" class="form-control" />
+            <span asp-validation-for="SubContratada" class="text-danger"></span>
+        </div>
+    </div>
+    <hr />
+    <hr />
+    <h2>Dados do Dealer</h2>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label asp-for="CNPJ" class="control-label"></label>
+            <input asp-for="CNPJ" class="form-control">
+            <span asp-validation-for="CNPJ" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="SubGrupoDealersId" class="control-label"></label>
+            <select asp-for="SubGrupoDealersId" class="form-control" asp-items="ViewBag.SubGrupoDealersId"></select>
+        </div>
+    </div>
+    <hr />
+    <h2>Dados do Departamento</h2>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label asp-for="UnidadeGestorOperacional" class="control-label"></label>
+            <input asp-for="UnidadeGestorOperacional" class="form-control">
+            <span asp-validation-for="UnidadeGestorOperacional" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="UnidadeGestorContrato" class="control-label"></label>
+            <input asp-for="UnidadeGestorContrato" class="form-control" />
+            <span asp-validation-for="UnidadeGestorContrato" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Solicitante" class="control-label"></label>
+            <input asp-for="Solicitante" class="form-control" />
+            <span asp-validation-for="Solicitante" class="text-danger"></span>
+        </div>
+    </div>
+
+    <hr />
+    <h2>Dados de Atividade do Aliado</h2>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label asp-for="InicioAtividade" class="control-label"></label>
+            <input asp-for="InicioAtividade" class="form-control">
+            <span asp-validation-for="InicioAtividade" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="FimAtividade" class="control-label"></label>
+            <input asp-for="FimAtividade" class="form-control" />
+            <span asp-validation-for="FimAtividade" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="StatusTerceiro" class="control-label"></label>
+            <select asp-for="StatusTerceiroId" class="form-control" asp-items="ViewBag.StatusTerceiroId"></select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label asp-for="Atividade" class="control-label"></label>
+            <select asp-for="AtividadeId" class="form-control" asp-items="ViewBag.AtividadeId"></select>
+        </div>
+        <div class="form-group col-md-5">
+            <label asp-for="RamoAtividade" class="control-label"></label>
+            <select asp-for="RamoAtividadeId" class="form-control" asp-items="ViewBag.RamoAtividadeId"></select>
+        </div>
+    </div>
+    <hr />
+    <h2>Dados de Local Fisico do Trabalho</h2>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label asp-for="Empresa" class="control-label"></label>
+            <select asp-for="EmpresaId" class="form-control" asp-items="ViewBag.EmpresaId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="RecursosHumanos" class="control-label"></label>
+            <select asp-for="RecursosHumanosId" class="form-control" asp-items="ViewBag.RecursosHumanosId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="SubArea" class="control-label"></label>
+            <input asp-for="SubArea" class="form-control">
+            <span asp-validation-for="SubArea" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="CidadePServ" class="control-label"></label>
+            <input asp-for="CidadePServ" class="form-control" />
+            <span asp-validation-for="CidadePServ" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label asp-for="EstadoPServId" class="control-label"></label>
+            <select asp-for="EstadoPServId" class="form-control" asp-items="ViewBag.EstadoPServId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="SitesCallCenterId" class="control-label"></label>
+            <select asp-for="SitesCallCenterId" class="form-control" asp-items="ViewBag.SitesCallCenterId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="AndarPredioTelId" class="control-label"></label>
+            <select asp-for="AndarPredioTelId" class="form-control" asp-items="ViewBag.AndarPredioTelId"></select>
+        </div>
+    </div>
+    <hr />
+    <h2>Dados de Acesso Lógico</h2>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label asp-for="AcessoLogicoId" class="control-label"></label>
+            <select asp-for="AcessoLogicoId" class="form-control" asp-items="ViewBag.AcessoLogicoId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="AcessoFisicoId" class="control-label"></label>
+            <select asp-for="AcessoFisicoId" class="form-control" asp-items="ViewBag.AcessoFisicoId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="GrupoAtendimentoId" class="control-label"></label>
+            <select asp-for="GrupoAtendimentoId" class="form-control" asp-items="ViewBag.GrupoAtendimentoId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="Prorroga" class="control-label"></label>
+            <input asp-for="Prorroga" class="form-control" />
+            <span asp-validation-for="Prorroga" class="text-danger"></span>
+        </div>
+    </div>
+    <hr />
+    <h2>Dados de Local Físico e Dedicação</h2>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label asp-for="DependenciaId" class="control-label"></label>
+            <select asp-for="DependenciaId" class="form-control" asp-items="ViewBag.DependenciaId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="ContatoClienteId" class="control-label"></label>
+            <select asp-for="ContatoClienteId" class="form-control" asp-items="ViewBag.ContatoClienteId"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="DedicadoTelefonicaId" class="control-label"></label>
+            <select asp-for="DedicadoTelefonicaId" class="form-control" asp-items="ViewBag.DedicadoTelefonicaId"></select>
+        </div>
+    </div>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label id="Label1">Status ok!</label>
+        </div>
+        <div class="form-group col-md-2">
+            <input id="btnAdicionar" type="submit" value="Atualizar Funcionario" class="btn btn-primary" />
+        </div>
+        <div class="form-group col-md-2" style="text-align:right">
+            <a  class="btn btn-info" asp-action="Index">Voltar</a>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script type="text/javascript">
+    document.getElementById("DependenciaId").onchange = function () {
+        var tipoDependencia = document.getElementById("DependenciaId");
+        var predio = document.getElementById("AndarPredioTelId");
+        var cidade = document.getElementById("EstadoPServId");
+        var estado = document.getElementById("CidadePServ");
+
+        if (tipoDependencia.options[0].selected) {
+
+            for (var i = 0; i < cidade.length; i++) {
+                estado.value = "São Paulo"
+                predio.focus();
+                if (cidade[i].text == "SP São Paulo") {
+                    cidade.selectedIndex = i;
+                    alert("Estado de prestação alterado para SP São Paulo e Cidade Prestação para São Paulo , necessário informar o Predio Telefonica");
+                }
+            }
+        }
+        else {
+            estado.value = "";
+            estado.focus();
+            alert("Para dependencias fora do prédio da telefonica será necessário informar o Estado de Prestação e Cidade");
+        }
+    }
+
+
+    document.getElementById("AcaoId").onchange = function () {
+       
+        var tipoAcao = document.getElementById("AcaoId");
+        var matricula = document.getElementById("Matricula");
+
+        if (tipoAcao.options[1].selected && matricula.value == "") {
+            alert("Para o ação 2 - Alteração é necessário informar a matrícula")
+            matricula.focus();
+            desabilitarBotao();
+        }
+        else {
+            habilitarBotao();
+        }
+    }
+
+    function habilitarBotao() {
+        console.log("Habilitar Botao");
+        document.getElementById("btnAdicionar").disabled = false;
+    }
+
+    function desabilitarBotao() {
+        console.log("Desaabilitar Botao");
+        document.getElementById("btnAdicionar").disabled = true;
+    }
+
+    document.getElementById("Matricula").onchange = function () {
+
+        var Nmatricula = document.getElementById("Matricula");
+        console.log(Nmatricula.value);
+        if (Nmatricula.value === "") {
+            console.log(Nmatricula.value);
+            alert("Para o ação 2 - Alteração é necessário informar a matrícula")
+            desabilitarBotao();
+        } else {
+            console.log(Nmatricula.value);
+            habilitarBotao();
+        }
+    }
+
+</script>

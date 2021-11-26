@@ -1,0 +1,139 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CslApoio</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/Imagem/logo_vivo.png" style="height:30px;width:60px; opacity:4" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="menubar" aria-haspopup="true" aria-expanded="false">Funcionarios </a>
+                            <div class="dropdown-menu">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Funcionarios" asp-action="Index">Listagem</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Funcionarios" asp-action="Create">Criar</a>
+                            </div>
+                        </li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            @*Dados do Terceiro*@
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="menubar" aria-haspopup="true" aria-expanded="false">Dados Terceiros</a>
+                                <div class="dropdown-menu">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Acoes" asp-action="Index">Ação</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Terceiros" asp-action="Index">Tipo de Terceiro</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Sexos" asp-action="Index">Genero</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="EstadoCivils" asp-action="Index">Estado Civil</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Nacionalidades" asp-action="Index">Nacionalidade</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Escolaridades" asp-action="Index">Escolaridade</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Certificadoes" asp-action="Index">Certificado</a>
+                                </div>
+                            </li>
+                            @*Dados Dealers*@
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="menubar" aria-haspopup="true" aria-expanded="false">Dealers</a>
+                                <div class="dropdown-menu">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SubGrupoDealers" asp-action="Index">Grupo Dealers</a>
+                                </div>
+                            </li>
+                            @*Dados Atividades do Aliado *@
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="menubar" aria-haspopup="true" aria-expanded="false">Dados Aliados</a>
+                                <div class="dropdown-menu">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="StatusTerceiros" asp-action="Index">Status Terceiro</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Atividades" asp-action="Index">Atividades</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="RamoAtividades" asp-action="Index">Ramo Atividades</a>
+                                </div>
+                            </li>
+                            @*Local Fisico de Trabalho*@
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="menubar" aria-haspopup="true" aria-expanded="false">Local Fisico</a>
+                                <div class="dropdown-menu">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Empresas" asp-action="Index">Empresas</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="RecursosHumanos" asp-action="Index">Recursos Humanos</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="EstadoPServs" asp-action="Index">Prestação de Serviço</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SitesCallCenters" asp-action="Index">Site Call Center</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="AndarPredioTels" asp-action="Index">Andar Predio</a>
+                                </div>
+                            </li>
+                            @*Dados de Acesso Lógico*@
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="menubar" aria-haspopup="true" aria-expanded="false">Acesso Lógico</a>
+                                <div class="dropdown-menu">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="AcessoFisicos" asp-action="Index">Acesso Fisico</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="AcessoLogicos" asp-action="Index">Acesso Logico</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="GrupoAtendimentos" asp-action="Index">Grupo Atendimento</a>
+                                </div>
+                            </li>
+                            @*Local Fisico e Dedicação*@
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="menubar" aria-haspopup="true" aria-expanded="false">Dedicação</a>
+                                <div class="dropdown-menu">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Dependencias" asp-action="Index">Dependencia</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ContatoClientes" asp-action="Index">Contato com Cliente</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="DedicadoTelefonicas" asp-action="Index">Dedicado Telefonica</a>
+                                </div>
+                            </li>
+                            @*Teste de login*@                            
+                            <li class="nav-item">
+                                <form method="post" asp-controller="account" asp-action="logout">
+                                    <button type="submit" style="width:auto"
+                                       class="nav-link btn btn-link py-0">
+                                        Logout @User.Identity.Name
+                                    </button>
+                                </form>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="account" asp-action="registro">
+                                    Registrar
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="account" asp-action="login">
+                                    Login
+                                </a>
+                            </li>
+                        }
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Vivo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Home</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
